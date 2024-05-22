@@ -14,11 +14,12 @@ async function main() {
   await client.connect();
   console.log('Connected successfully to server');
   const db = client.db(dbName);
-  const collection = db.collection('documents');
+  const collection = db.collection('books');
 
   // the following code examples can be pasted here...
-
-  return 'done.';
+  const findResult = await collection.find({}).toArray();
+  console.log('Found books =>', findResult);
+  //return 'done.';
 }
 
 main()
