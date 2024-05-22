@@ -4,3 +4,4 @@ main.js
 *.rdb
 *.swp
 *.pyc
+__pycache__/
