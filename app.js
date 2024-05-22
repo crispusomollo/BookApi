@@ -9,6 +9,8 @@ const client = new MongoClient(url);
 // Database Name
 const dbName = 'bookapi';
 
+const port = 3000;
+
 async function main() {
   // Use connect method to connect to the server
   await client.connect();
@@ -20,6 +22,7 @@ async function main() {
   const findResult = await collection.find({}).toArray();
   console.log('Found books =>', findResult);
   //return 'done.';
+
 }
 
 main()
