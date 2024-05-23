@@ -8,10 +8,10 @@ from flask_restful import Api
 app = Flask(__name__)
 app.config.from_object(Config)
 
-@app.route('/')
-def hello():
-    name = request.args.get("name", "World")
-    return f'Hello, {escape(name)}!'
+#@app.route('/')
+#def hello():
+#    name = request.args.get("name", "World")
+#    return f'Hello, {escape(name)}!'
 
 mongo = PyMongo(app)
 api = Api(app)
