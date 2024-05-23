@@ -1,3 +1,4 @@
+from os import getenv
 from flask import Flask, request
 from markupsafe import escape
 from config import Config
@@ -32,3 +33,7 @@ api.add_resource(UserProfile, '/users/<user_id>')
 
 if __name__ == '__main__':
     app.run(debug=True)
+    host = getenv("API_HOST", "0.0.0.0")
+    port = getenv("API_PORT", "5000")
+    app.run(host=host, port=port)
+
