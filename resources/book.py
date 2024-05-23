@@ -1,3 +1,4 @@
+# resources/book.py
 from flask_restful import Resource
 from flask import request
 from bson.objectid import ObjectId
