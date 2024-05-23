@@ -18,8 +18,8 @@ api = Api(app)
 # Import resources and add routes
 from resources.book import BookList, BookDetail
 from resources.user import UserRegister, UserProfile
-from resources.read_list import ReadingList, AddToReadingList
-from resources.read_progress import ReadingProgress, UpdateReadingProgress
+from resources.reading_list import ReadingList, AddToReadingList
+from resources.reading_progress import ReadingProgress, UpdateReadingProgress
 
 api.add_resource(BookList, '/books')
 api.add_resource(BookDetail, '/books/<book_id>')
