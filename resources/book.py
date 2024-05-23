@@ -1,6 +1,6 @@
 from flask import request
 from flask_restful import Resource
-from app import mongo
+from api.app import mongo
 
 class BookList(Resource):
     def get(self):
@@ -18,4 +18,3 @@ class BookDetail(Resource):
     def get(self, book_id):
         book = mongo.db.books.find_one_or_404({"_id": book_id})
         return {"id": str(book["_id"]), "title": book["title"], "author": book["author"], "isbn": book["isbn"]}, 200
-
