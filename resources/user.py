@@ -1,6 +1,6 @@
 from flask import request
 from flask_restful import Resource
-from app import mongo
+from api.app import mongo
 
 class UserRegister(Resource):
     def post(self):
