@@ -4,10 +4,12 @@ from app import mongo
 
 class BookList(Resource):
     def get(self):
+        # This method will handle GET requests to the /books endpoint
         books = mongo.db.books.find()
         return [{"id": str(book["bk_id"]), "title": book["title"], "author": book["author"]} for book in books], 200
 
     def post(self):
+        # This method will handle POST requests to the /books endpoint
         data = request.get_json()
         book_id = mongo.db.books.insert_one(data).inserted_id
         return {"id": str(book_id)}, 201
