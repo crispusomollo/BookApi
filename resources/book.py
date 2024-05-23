@@ -6,7 +6,7 @@ class BookList(Resource):
     def get(self):
         # This method will handle GET requests to the /books endpoint
         books = mongo.db.books.find()
-        return [{"id": str(book["bk_id"]), "title": book["title"], "author": book["author"]} for book in books], 200
+        return [{"id": str(book["_id"]), "title": book["title"], "author": book["author"]} for book in books], 200
 
     def post(self):
         # This method will handle POST requests to the /books endpoint
