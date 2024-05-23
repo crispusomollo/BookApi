@@ -1,5 +1,5 @@
 from os import getenv
-from flask import Flask, request
+from flask import Flask, jsonify, request
 from markupsafe import escape
 from config import Config
 from flask_pymongo import PyMongo
@@ -30,6 +30,11 @@ api.add_resource(UserProfile, '/users/<user_id>')
 #api.add_resource(AddToReadingList, '/users/<user_id>/reading-list/<book_id>')
 #api.add_resource(ReadingProgress, '/users/<user_id>/reading-progress/<book_id>')
 #api.add_resource(UpdateReadingProgress, '/users/<user_id>/reading-progress/<book_id>')
+
+@app.errorhandler(404)
+def not_found(error) -> str:
+    """ Not found handler"""
+    return jsonify({"error": "Not found"}), 404
 
 if __name__ == '__main__':
     app.run(debug=True)
